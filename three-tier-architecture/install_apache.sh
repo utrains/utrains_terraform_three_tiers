@@ -1,7 +1,8 @@
 #!/bin/bash
 
-yum update -y
-yum install -y httpd.x86_64
-systemctl start httpd.service
-systemctl enable httpd.service
-echo "Hello World from $(hostname -f)" > /var/www/html/index.html
+apt-get update -y
+apt install apache2 -y
+systemctl start apache2
+systemctl enable apache2
+echo "<h1 style="border:2px solid DodgerBlue;">Hello World from $(hostname -f)</h1>" > /var/www/html/index.html
+
