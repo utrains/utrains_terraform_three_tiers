@@ -289,7 +289,7 @@ resource "aws_db_instance" "default" {
   allocated_storage      = 10
   db_subnet_group_name   = aws_db_subnet_group.default.id
   engine                 = "mysql"
-  engine_version         = "8.0.20"
+  engine_version         = "8.0"
   instance_class         = "db.t2.micro"
   multi_az               = true
   name                   = "mydb"
@@ -311,4 +311,9 @@ resource "aws_db_subnet_group" "default" {
 output "lb_dns_name" {
   description = "The DNS name of the load balancer"
   value       = aws_lb.external-elb.dns_name
+}
+
+output "web1" {
+  description = "The DNS name of the load balancer"
+  value       = aws_instance.webserver2.public_ip
 }
